@@ -1,6 +1,12 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
+import styled from "styled-components";
 import "./App.css";
+
+const Component = styled.h2`
+  background: green;
+  color: withTheme;
+`;
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,7 +22,7 @@ function App() {
         </a>
       </div>
       <h1>Olá Mundo</h1>
-      <h2>Hello World</h2>
+      <Component>Hello World</Component>
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
