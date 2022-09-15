@@ -1,13 +1,14 @@
-import { Ul, Li, Nav } from "./style";
+import { Nav } from "./style";
 
 //teste menu
 export const Menu = () => {
     return (<Nav>
-        <Ul>
-            <Li>Home</Li>
-            <Li>About</Li>
-            <Li>Maps</Li>
-            <Li>Contact</Li>
-        </Ul>
+        <p>logo</p>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Maps</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </Nav>);
 };

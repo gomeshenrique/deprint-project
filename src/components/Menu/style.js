@@ -3,12 +3,14 @@ import { theme } from "../../common/theme";
 
 export const Nav = styled.nav`
     display: flex;
+    position: fixed;
     justify-content: center;
-    margin: 1rem auto;
+    top : 0;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: ${theme.colors.white};
-    width: 90vw;
-    height: 5rem;
-    border-radius: 1.6rem;
+    width: 100vw;
+    height: 3.8rem;
 
     //glassmorphism
     background: rgba( 255, 255, 255, 0.25 );
@@ -16,16 +18,24 @@ export const Nav = styled.nav`
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-`;
 
-export const Ul = styled.ul`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-`;
-
-export const Li = styled.li`
-    color: ${theme.colors.white};
-    list-style: none;
-    padding: 1rem;
+    // [x] aplicar o estilo para elementos menos importantes diretamente no componente.
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        li{
+            list-style: none;
+            margin: 1rem;
+            a {
+                border-radius: 0.5rem;
+                padding: 0.5rem 1rem;
+                color: ${theme.colors.white};
+                text-decoration: none;
+            }
+            &:visited {
+                color: none;
+            }
+        }
+    }
 `;
