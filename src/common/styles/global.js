@@ -12,15 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--clr-black);
     font-family: Arial, Helvetica, sans-serif;
-  }
-
-  h1 {
-    color: var(--clr-red);
-    background-color: var(--clr-white)
-  }
-
-  span {
-    color: var(--clr-blue);
+    color: var(--clr-white);
   }
 
   /* Box sizing rules */
