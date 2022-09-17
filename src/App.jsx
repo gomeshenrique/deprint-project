@@ -8,7 +8,7 @@ function App() {
       <Header>
         <Menu />
       </Header>
-      <Slider />
+      <Slider numberOfSlides={1} hasZoom={true} hasEffect={true} />
       <h1>
         De<span>Print</span> Project
       </h1>
