@@ -42,6 +42,11 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  /* Set default px to rem ex: 1rem = 10px */
+  html {
+    font-size: 62.5%;
+  }
+
   /* Set core root defaults */
   html:focus-within {
     scroll-behavior: smooth;
@@ -49,6 +54,7 @@ export const GlobalStyle = createGlobalStyle`
 
   /* Set core body defaults */
   body {
+    font-size: 1.4rem;
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
