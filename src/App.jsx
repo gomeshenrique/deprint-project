@@ -1,10 +1,13 @@
 import { Header } from "./components/Header";
 import { Menu } from "./components/Menu";
 import { Slider } from "./components/Slider";
+import { ThemeProvider } from "styled-components"
+
+import { theme } from "./common/styles/theme";
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Header>
         <Menu />
       </Header>
@@ -18,7 +21,7 @@ function App() {
         id aut. Laudantium ea laboriosam impedit inventore adipisci, labore
         consequatur commodi!
       </p>
-    </div>
+    </ThemeProvider>
   );
 }
 
