@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../common/styles/theme";
+// import { theme } from "../../common/styles/theme";
 
 export const SwiperStyle = styled.div`
   & img {
@@ -10,10 +10,10 @@ export const SwiperStyle = styled.div`
   }
 
   & [class^="swiper-button"] {
-    color: ${theme.colors.blue};
+    color: ${(props) => props.theme.colors.blue};
   }
 
   & .swiper-pagination-bullet-active {
-    background-color: ${theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
   }
 `;

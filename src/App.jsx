@@ -1,9 +1,10 @@
 import { Header } from "./components/Header";
 import { Menu } from "./components/Menu";
 import { Slider } from "./components/Slider";
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components";
 
 import { theme } from "./common/styles/theme";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         id aut. Laudantium ea laboriosam impedit inventore adipisci, labore
         consequatur commodi!
       </p>
+      <Footer />
     </ThemeProvider>
   );
 }

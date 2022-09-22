@@ -10,9 +10,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: var(--clr-black);
+    background-color: var(--clr-white);
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--clr-white);
+    color: var(--clr-black);
   }
 
   /* Box sizing rules */
