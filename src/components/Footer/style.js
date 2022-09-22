@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const FooterStyle = styled.footer`
+  display: flex;
+  justify-content: space-around;
   color: ${(props) => props.theme.colors.black};
   background-color: ${(props) => props.theme.colors.white};
 
