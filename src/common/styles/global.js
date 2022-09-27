@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: var(--clr-white);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
     color: var(--clr-black);
   }
 

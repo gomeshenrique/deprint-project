@@ -6,7 +6,7 @@ export const theme = {
     white: "#f2f2f2",
   },
   margins: {
-    menuTop: "5rem",
+    menuTop: "6rem",
     nav: "12%",
   },
 };

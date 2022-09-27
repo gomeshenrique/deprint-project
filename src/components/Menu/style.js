@@ -87,12 +87,14 @@ export const Nav = styled.nav`
 
     ul{
       ${({ openMenu }) => !openMenu && "display: none;"}
-      padding-left: 0;
+      padding: 0;
+      margin: 0 0 1rem 0;
       flex-direction: column;
       li{
         border-bottom: 1px solid ${({ theme }) => theme.colors.red};
+        padding: 0 1rem;
         a{
-          padding: 0rem 0rem;
+          margin: 0;
         }
       }
     }
@@ -106,16 +108,19 @@ export const Nav = styled.nav`
     button{
       display: flex;
       position: fixed;
-      top: 1.2rem;
+      top: 1.6rem;
       right: 2rem;
       border: none;
       cursor: pointer;
       transition: all 200ms;
-
-      &:hover{
+      padding: 0.5rem;
+      border-radius: 0.4rem;
       color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors.blue};
-    }
+      background-color: ${({ theme }) => theme.colors.red};
+
+        &:hover{
+        background-color: ${({ theme }) => theme.colors.blue};
+      }
     }
 }
 `;
