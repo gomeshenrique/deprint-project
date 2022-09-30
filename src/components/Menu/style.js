@@ -5,7 +5,7 @@ export const Nav = styled.nav`
   font-size: medium;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 
   position: fixed;
@@ -16,10 +16,11 @@ export const Nav = styled.nav`
   transform: translate(-50%, 0);
 
   background-color: ${({ theme }) => theme.colors.white};
-  height: ${({ theme }) => theme.margins.menuTop};
+  height: ${({ theme }) => theme.menu.size};
   width: 100vw;
 
   background-color: ${({ theme }) => theme.colors.white};
+
   //glassmorphism
   /* background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -27,12 +28,8 @@ export const Nav = styled.nav`
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18); */
 
-  a:first-child{
-    margin-left: ${({ theme }) => theme.margins.nav};
-  }
-
   a img {
-      height: 4.5rem;
+      height: 5rem;
   }
 
   ul {
@@ -57,7 +54,6 @@ export const Nav = styled.nav`
   a:not(:first-child) {
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.red};
-    margin-right: ${({ theme }) => theme.margins.nav};
     text-decoration: none;
     padding: 0.3rem 1.2rem;
     border-radius: 5rem;
@@ -82,7 +78,7 @@ export const Nav = styled.nav`
     }
     
     a img {
-      height: ${({ theme }) => theme.margins.menuTop};
+      height: 6rem;
     }
 
     ul{
