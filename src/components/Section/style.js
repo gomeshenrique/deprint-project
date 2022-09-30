@@ -10,6 +10,9 @@ export const SectionStyled = styled.section`
     padding: 2rem;
 
     background-image: url(${backgroundImage});
-    background-repeat: no-repeat;
     background-size: auto;
+    background-position: center;
+
+    max-width: 100%;
+    height: auto;
 `;

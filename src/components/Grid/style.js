@@ -7,9 +7,17 @@ export const GridStyle = styled.div`
     gap: 1rem;
     justify-items: center;
     padding: 2rem;
-    justify-content: center;
+    justify-content: center;    
 
     h2 {
-        color: white;
+        color: ${({theme}) => theme.colors.white};
+    }
+
+    @media (max-width: 860px) {
+        grid-template-columns: repeat(${({ columns }) => columns - 1}, 1fr);
+    }
+    
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(${({ columns }) => columns - 2}, 1fr);
     }
 `
