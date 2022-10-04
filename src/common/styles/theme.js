@@ -5,8 +5,7 @@ export const theme = {
     black: "#201e1e",
     white: "#f2f2f2",
   },
-  margins: {
-    menuTop: "6rem",
-    nav: "12%",
+  menu: {
+    size: "6rem",
   },
 };
