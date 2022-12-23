@@ -1,10 +1,16 @@
 import { CardStyle } from "./style"
 
-export const Card = ({ title, imgUrl }) => {
-    return(
+export const Card = ({ description, title, imgUrl }) => {
+    return (
         <CardStyle imgUrl={imgUrl}>
-            <div>
-                <p>{ title }</p>
+            <div className="card">
+                <div className="card-shadow">
+                    <div className="card-details">
+                        <p className="text-title">{title}</p>
+                        <p className="text-body">{description}</p>
+                    </div>
+                </div>
+                <button className="card-button">More info</button>
             </div>
         </CardStyle>
     )

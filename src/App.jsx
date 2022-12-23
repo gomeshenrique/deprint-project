@@ -8,7 +8,7 @@ import { Footer } from "./components/Footer";
 import { Grid } from "./components/Grid";
 import { Card } from "./components/Card";
 
-import imgUrl from "./common/img/image_mockup_card.jpg"
+import imgUrl from "./common/img/image_mockup_card.jpg";
 
 function App() {
   return (
@@ -20,26 +20,32 @@ function App() {
       <Grid columns={3}>
         <Card
           title={"Adesivos Personalizados"}
+          description={"Fazemos todos os tipos de adesivos para seu negócio"}
           imgUrl={imgUrl}
         />
         <Card
           title={"Adesivos Personalizados"}
-          imgUrl={imgUrl}
-         />
-        <Card
-          title={"Adesivos Personalizados"}
+          description={"Fazemos todos os tipos de adesivos para seu negócio"}
           imgUrl={imgUrl}
         />
         <Card
           title={"Adesivos Personalizados"}
+          description={"Fazemos todos os tipos de adesivos para seu negócio"}
           imgUrl={imgUrl}
         />
         <Card
           title={"Adesivos Personalizados"}
+          description={"Fazemos todos os tipos de adesivos para seu negócio"}
           imgUrl={imgUrl}
         />
         <Card
           title={"Adesivos Personalizados"}
+          description={"Fazemos todos os tipos de adesivos para seu negócio"}
+          imgUrl={imgUrl}
+        />
+        <Card
+          title={"Adesivos Personalizados"}
+          description={"Fazemos todos os tipos de adesivos para seu negócio"}
           imgUrl={imgUrl}
         />
       </Grid>
