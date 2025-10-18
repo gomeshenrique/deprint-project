@@ -6,12 +6,18 @@ import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+<<<<<<< HEAD
 import Script from "next/script";
+=======
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+>>>>>>> ec61e2a (feat: start develop of  products page)
 
 export const metadata: Metadata = {
   title:
     "DePrint Gráfica Rápida - Impressão Digital, Banners, Cartões de Visita, Adesivos | Rio de Janeiro",
   description:
+<<<<<<< HEAD
     "DePrint Gráfica Rápida: impressão digital de alta qualidade no Rio de Janeiro. Banners, cartões de visita, adesivos, folders, crachás e materiais promocionais. Entrega rápida e preços competitivos.",
   authors: [
     {
@@ -65,6 +71,10 @@ export const metadata: Metadata = {
       "DePrint Gráfica Rápida: impressão digital de alta qualidade no Rio de Janeiro. Banners, cartões de visita, adesivos, folders, crachás e materiais promocionais. Entrega rápida e preços competitivos.",
     images: ["/deprint_logo_light.svg", "/deprint_logo_dark.svg"],
   },
+=======
+    "Gráfica rápida em Maricá, RJ. Comunicação visual, impressão digital e offset com excelência em atendimento e prazo de entrega.",
+  generator: "v0.app",
+>>>>>>> ec61e2a (feat: start develop of  products page)
 };
 
 export default function RootLayout({
@@ -84,7 +94,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Suspense fallback={null}>
+            <Navigation />
             {children}
+            <Footer />
             <Analytics />
           </Suspense>
         </ThemeProvider>
