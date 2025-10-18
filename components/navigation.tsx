@@ -41,19 +41,19 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="#servicos"
+              href="/#servicos"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Serviços
             </a>
             <a
-              href="#sobre"
+              href="/#sobre"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Sobre
             </a>
             <a
-              href="#contato"
+              href="/#contato"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Contato
@@ -83,21 +83,21 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden py-4 space-y-4 backdrop-blur-2xl backdrop-saturate-150 bg-gradient-to-b from-background/90 to-background/80 supports-[backdrop-filter]:bg-background/75 dark:from-background/70 dark:to-background/50 dark:backdrop-saturate-200 -mx-4 px-4 border-t border-border/20 dark:border-border/10 transition-all duration-300 max-h-[calc(100dvh-4rem)] overflow-y-auto">
             <a
-              href="#servicos"
+              href="/#servicos"
               className="block text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Serviços
             </a>
             <a
-              href="#sobre"
+              href="/#sobre"
               className="block text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Sobre
             </a>
             <a
-              href="#contato"
+              href="/#contato"
               className="block text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsOpen(false)}
             >
