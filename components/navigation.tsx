@@ -43,18 +43,21 @@ export function Navigation() {
             <a
               href="#servicos"
               className="text-muted-foreground hover:text-foreground transition-colors"
+              data-umami-event="Menu - Serviços Âncora"
             >
               Serviços
             </a>
             <a
               href="#sobre"
               className="text-muted-foreground hover:text-foreground transition-colors"
+              data-umami-event="Menu - Sobre Âncora"
             >
               Sobre
             </a>
             <a
               href="#contato"
               className="text-muted-foreground hover:text-foreground transition-colors"
+              data-umami-event="Menu - Contato Âncora"
             >
               Contato
             </a>
@@ -85,6 +88,7 @@ export function Navigation() {
             <a
               href="#servicos"
               className="block text-muted-foreground hover:text-foreground transition-colors"
+              data-umami-event="Menu - Serviços Âncora"
               onClick={() => setIsOpen(false)}
             >
               Serviços
@@ -92,6 +96,7 @@ export function Navigation() {
             <a
               href="#sobre"
               className="block text-muted-foreground hover:text-foreground transition-colors"
+              data-umami-event="Menu - Sobre Âncora"
               onClick={() => setIsOpen(false)}
             >
               Sobre
@@ -99,6 +104,7 @@ export function Navigation() {
             <a
               href="#contato"
               className="block text-muted-foreground hover:text-foreground transition-colors"
+              data-umami-event="Menu - Contato Âncora"
               onClick={() => setIsOpen(false)}
             >
               Contato

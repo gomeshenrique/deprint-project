@@ -64,10 +64,11 @@ export function Hero() {
             <Button
               size="lg"
               className="bg-[#25D366] hover:bg-[#20BA5A] text-white text-base px-8 h-12"
+              data-umami-event="WhatsApp Botão"
               asChild
             >
               <a
-                href="https://wa.me/5521972944994?text=Ol%C3%A1%2C%20estou%20interessado%20em%20saber%20mais%20sobre%20os%20produtos%20da%20deprint%20Gr%C3%A1fica%20R%C3%A1pida."
+                href="https://wa.me/5521972944994?text=Ol%C3%A1%2C%20estou%20interessado%20em%20saber%20mais%20sobre%20os%20produtos%20da%20Deprint%20Gr%C3%A1fica%20R%C3%A1pida."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -89,6 +90,7 @@ export function Hero() {
               variant="outline"
               className="glass text-base px-8 h-12 border-border hover:bg-primary/10 hover:text-primary hover:border-primary/50 bg-transparent transition-all duration-300"
               asChild
+              data-umami-event="Nossos Serviços Âncora"
             >
               <a href="#servicos">Nossos Serviços</a>
             </Button>
