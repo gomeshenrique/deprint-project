@@ -88,11 +88,13 @@ export default function RootLayout({
             <Analytics />
           </Suspense>
         </ThemeProvider>
-        <Script
-          src="https://umami.hostserver.myaddr.io/script.js"
-          data-website-id="da6216a2-65a6-4b44-aea8-5a26fd3167a3"
-          defer
-        />
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            src="https://umami.hostserver.myaddr.io/script.js"
+            data-website-id="da6216a2-65a6-4b44-aea8-5a26fd3167a3"
+            defer
+          />
+        )}
       </body>
     </html>
   );
