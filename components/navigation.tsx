@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-
+import Link from "next/link";
 export function Navigation() {
   const { theme, systemTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
@@ -24,18 +24,20 @@ export function Navigation() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center gap-3">
-            <Image
-              src={
-                currentTheme === "dark"
-                  ? "/deprint_logo_dark.svg"
-                  : "/deprint_logo_light.svg"
-              }
-              alt="deprint logo"
-              width={120}
-              height={40}
-              className="h-8 lg:h-10 w-auto"
-              priority
-            />
+            <Link href="/">
+              <Image
+                src={
+                  currentTheme === "dark"
+                    ? "/deprint_logo_dark.svg"
+                    : "/deprint_logo_light.svg"
+                }
+                alt="deprint logo"
+                width={120}
+                height={40}
+                className="h-8 lg:h-10 w-auto"
+                priority
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
