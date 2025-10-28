@@ -1,65 +1,40 @@
-"use client";
+import { BannerCarouselContent } from "@/components/banner-carousel-content";
+import type { Banner, BannersResponse } from "@/lib/types";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import Image from "next/image";
+async function fetchBanners(): Promise<Banner[]> {
+  const baseUrl = process.env.STRAPI_BASE_URL || "";
+  const apiKey = process.env.STRAPI_KEY || "";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-fade";
+  if (!baseUrl || !apiKey) {
+    console.warn("Strapi URL or API Key not configured");
+    return [];
+  }
 
-const banners = [
-  {
-    id: 1,
-    src: "/banner_1.png",
-    alt: "Banner 1 - Deprint Gráfica Rápida",
-  },
-  {
-    id: 2,
-    src: "/banner_2.png",
-    alt: "Banner 2 - Deprint Gráfica Rápida",
-  },
-  {
-    id: 3,
-    src: "/banner_3.png",
-    alt: "Banner 3 - Deprint Gráfica Rápida",
-  },
-];
+  try {
+    const response = await fetch(
+      `${baseUrl}/api/banners?fields=order&populate=*&sort=order:asc`,
+      {
+        headers: {
+          Authorization: `bearer ${apiKey}`,
+        },
+        next: { revalidate: 3600 }, // Cache por 1 hora (3600 segundos)
+      }
+    );
 
-export function BannerCarousel() {
-  return (
-    <div className="relative w-full overflow-hidden mt-16 lg:mt-20">
-      <Swiper
-        modules={[Autoplay, EffectFade]}
-        spaceBetween={0}
-        slidesPerView={1}
-        autoplay={{
-          delay: 5000,
-          pauseOnMouseEnter: true,
-        }}
-        effect="fade"
-        fadeEffect={{
-          crossFade: true,
-        }}
-        loop={true}
-        className="w-full"
-      >
-        {banners.map((banner) => (
-          <SwiperSlide key={banner.id}>
-            <div className="relative w-full h-[320px] flex items-center justify-center">
-              <Image
-                src={banner.src}
-                alt={banner.alt}
-                width={1200}
-                height={320}
-                className="object-contain max-w-full max-h-full"
-                priority={banner.id === 1}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
+    if (!response.ok) {
+      throw new Error(`Failed to fetch banners: ${response.statusText}`);
+    }
+
+    const data: BannersResponse = await response.json();
+    return data.data;
+  } catch (error) {
+    console.error("Error fetching banners:", error);
+    return [];
+  }
+}
+
+export async function BannerCarousel() {
+  const banners = await fetchBanners();
+
+  return <BannerCarouselContent banners={banners} />;
 }

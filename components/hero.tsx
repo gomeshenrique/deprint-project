@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
-import { BannerCarousel } from "@/components/banner-carousel";
 import Image from "next/image";
 
 export function Hero() {
@@ -14,9 +13,6 @@ export function Hero() {
 
   return (
     <section className="min-h-screen">
-      {/* Banner Carousel */}
-      <BannerCarousel />
-
       <div className="relative flex items-center justify-center">
         {/* Background gradient effects */}
         <div className="absolute inset-0">
