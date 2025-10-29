@@ -7,6 +7,8 @@ import { Suspense } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Script from "next/script";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title:
@@ -84,7 +86,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Suspense fallback={null}>
+            <Navigation />
             {children}
+            <Footer />
             <Analytics />
           </Suspense>
         </ThemeProvider>
