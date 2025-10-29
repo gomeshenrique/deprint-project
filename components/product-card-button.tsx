@@ -47,7 +47,7 @@ export function ProductCardButton({
     >
       Ver detalhes
       <svg
-        className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+        className="ml-2 w-4 h-4"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

@@ -2,6 +2,7 @@
 
 import { ProductCardButton } from "@/components/product-card-button";
 import { useInView } from "@/hooks/useInView";
+import Markdown from "react-markdown";
 
 export type Product = {
   id: number;
@@ -40,7 +41,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className={`group glass rounded-xl p-6 hover:glass-strong transition-all duration-500 hover:scale-[1.02] hover:shadow-xl transform ${
+      className={`group glass rounded-xl p-6 transition-transform duration-250 hover:-translate-y-1.5 h-full flex flex-col ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{
@@ -58,28 +59,29 @@ export function ProductCard({ product, index }: ProductCardProps) {
             ? "oklch(from var(--secondary) l c h / 0.2)"
             : "oklch(from var(--accent) l c h / 0.2)"
         }`,
-        transitionDelay: `${index * 100}ms`,
       }}
     >
-      <div className="space-y-4">
-        <h2
-          className="text-xl font-semibold transition-colors duration-300"
-          style={{
-            color: isPrimary
-              ? "var(--primary)"
-              : isSecondary
-              ? "var(--secondary)"
-              : "var(--accent)",
-          }}
-        >
-          {product.title}
-        </h2>
+      <div className="flex flex-col h-full justify-between">
+        <div className="space-y-4">
+          <h2
+            className="text-xl font-semibold transition-colors duration-300"
+            style={{
+              color: isPrimary
+                ? "var(--primary)"
+                : isSecondary
+                ? "var(--secondary)"
+                : "var(--accent)",
+            }}
+          >
+            {product.title}
+          </h2>
 
-        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-          {product.description}
-        </p>
+          <div className="prose dark:prose-invert prose-sm leading-none line-clamp-2">
+            <Markdown>{product.description}</Markdown>
+          </div>
+        </div>
 
-        <div className="pt-2">
+        <div className="pt-4 mt-auto">
           <ProductCardButton
             href={`/products/${product.documentId}`}
             colorScheme={
