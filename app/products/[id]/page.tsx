@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import Markdown from "react-markdown";
 
 async function getProduct(id: string): Promise<any> {
   let responseJson;
@@ -68,7 +69,7 @@ export default async function Product({
 
         {/* Product Content */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid gap-12 lg:gap-16 lg:grid-cols-2">
+          <div className="grid gap-4 lg:gap-6 lg:grid-cols-2">
             {/* Product Images Section */}
             <div className="space-y-6">
               <div className="glass rounded-xl p-8 min-h-[400px] flex items-center justify-center">
@@ -154,14 +155,14 @@ export default async function Product({
                     <h2 className="text-xl font-semibold text-foreground">
                       Sobre este produto
                     </h2>
-                    <div className="prose prose-sm max-w-none text-muted-foreground leading-relaxed">
-                      <p>{product.description}</p>
+                    <div className="prose dark:prose-invert prose-sm max-w-none leading-relaxed">
+                      <Markdown>{product.description}</Markdown>
                     </div>
                   </div>
 
                   {/* CTA Section */}
                   <div className="pt-6 border-t border-border">
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col justify-center sm:flex-row gap-4">
                       <Link
                         href="https://wa.me/5521972944994?text=Ol%C3%A1%2C%20estou%20interessado%20neste%20produto%20da%20deprint%20Gr%C3%A1fica%20R%C3%A1pida."
                         target="_blank"
@@ -176,13 +177,6 @@ export default async function Product({
                           className="w-5 h-5 mr-2"
                         />
                         Solicitar orçamento
-                      </Link>
-
-                      <Link
-                        href="/products"
-                        className="inline-flex items-center justify-center px-6 py-3 glass rounded-lg transition-all duration-300 hover:glass-strong text-foreground hover:text-primary border border-border hover:border-primary/50 font-medium"
-                      >
-                        Ver outros produtos
                       </Link>
                     </div>
                   </div>
