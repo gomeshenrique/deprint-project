@@ -2,17 +2,22 @@
 
 import Image from "next/image";
 import { SwiperCarousel } from "@/components/ui/swiper-carousel";
-import type { BannerCarouselContentProps } from "@/lib/types";
+import type { Banner, StrapiResponse } from "@/lib/types";
+
+// Component Props Types
+export interface BannerCarouselContentProps {
+  banners: StrapiResponse<Banner> | null;
+}
 
 export function BannerCarouselContent({ banners }: BannerCarouselContentProps) {
-  if (banners.length === 0) {
+  if (banners?.data.length === 0) {
     return null;
   }
 
   return (
     <div className="relative w-full overflow-hidden mt-16 lg:mt-20">
-      <SwiperCarousel loop={banners.length > 1}>
-        {banners.map((banner, index) => {
+      <SwiperCarousel loop={banners?.data.length! > 1 ? true : false}>
+        {banners?.data.map((banner, index) => {
           // Use mobile image if available, otherwise use desktop
           const image = banner.image_mobile || banner.image_desk;
           const imageUrl = image.url;

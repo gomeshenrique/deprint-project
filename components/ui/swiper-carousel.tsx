@@ -4,7 +4,15 @@ import { Children, isValidElement } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import type { SwiperProps } from "swiper/react";
-import type { SwiperCarouselProps } from "@/lib/types";
+
+export interface SwiperCarouselProps {
+  children: React.ReactNode;
+  autoplayDelay?: number;
+  autoplayPauseOnMouseEnter?: boolean;
+  effect?: "fade" | "slide" | "cube" | "coverflow" | "flip";
+  loop?: boolean;
+  className?: string;
+}
 
 // Import Swiper styles
 import "swiper/css";

@@ -1,24 +1,34 @@
-import { ProductCard } from "@/components/product-card";
+import { Product, ProductCard } from "@/components/product-card";
+import { StrapiResponse } from "@/lib/types";
 
-async function getProdutcs(): Promise<any[]> {
-  let responseJson;
+async function getProdutcs(): Promise<StrapiResponse<Product> | null> {
+  const baseUrl = process.env.STRAPI_BASE_URL || "";
+  const apiKey = process.env.STRAPI_KEY || "";
 
-  try {
-    const response = await fetch(
-      `${process.env.STRAPI_BASE_URL}/api/products`,
-      {
-        headers: {
-          Authorization: `bearer ${process.env.STRAPI_KEY}`,
-        },
-      }
-    );
-
-    responseJson = await response.json();
-  } catch (error) {
-    console.error(`Erro ao carregar lista de produtos: ${error}`);
+  if (!baseUrl || !apiKey) {
+    console.warn("Strapi URL or API Key not configured");
+    return null;
   }
 
-  return responseJson.data;
+  try {
+    const response = await fetch(`${baseUrl}/api/products`, {
+      headers: {
+        Authorization: `bearer ${apiKey}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch banners: ${response.statusText}`);
+    }
+
+    const data: StrapiResponse<Product> = await response.json();
+
+    console.log(data.data);
+    return data;
+  } catch (error) {
+    console.error(`Erro ao carregar lista de produtos: ${error}`);
+    return null;
+  }
 }
 
 export default async function Produts() {
@@ -52,9 +62,9 @@ export default async function Produts() {
         </div>
 
         {/* Products Grid */}
-        {products.length ? (
+        {products?.data.length ? (
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-            {products.map((product, index) => (
+            {products.data.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
