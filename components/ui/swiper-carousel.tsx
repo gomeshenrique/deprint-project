@@ -2,7 +2,7 @@
 
 import { Children, isValidElement } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
 import type { SwiperProps } from "swiper/react";
 
 export interface SwiperCarouselProps {
@@ -11,12 +11,16 @@ export interface SwiperCarouselProps {
   autoplayPauseOnMouseEnter?: boolean;
   effect?: "fade" | "slide" | "cube" | "coverflow" | "flip";
   loop?: boolean;
+  hasPagination?: boolean;
+  hasNavigation?: boolean;
   className?: string;
 }
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 export function SwiperCarousel({
   children,
@@ -24,12 +28,20 @@ export function SwiperCarousel({
   autoplayPauseOnMouseEnter = true,
   effect = "fade",
   loop = true,
+  hasPagination = false,
+  hasNavigation = false,
   className = "",
 }: SwiperCarouselProps) {
   const slidesCount = Children.count(children);
 
   const swiperProps: SwiperProps = {
-    modules: [Autoplay, EffectFade],
+    modules: [Autoplay, EffectFade, Pagination, Navigation],
+    navigation: hasNavigation,
+    pagination: hasPagination
+      ? {
+          clickable: true,
+        }
+      : false,
     spaceBetween: 0,
     slidesPerView: 1,
     autoplay: {

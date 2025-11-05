@@ -3,23 +3,7 @@
 import { ProductCardButton } from "@/components/product-card-button";
 import { useInView } from "@/hooks/useInView";
 import Markdown from "react-markdown";
-
-export type Product = {
-  id: number;
-  documentId: string;
-  title: string;
-  description: string;
-  Images: Image[];
-};
-
-type Image = {
-  id: number;
-  documentId: string;
-  alternativeText: string;
-  ext: string;
-  mime: string;
-  url: string;
-};
+import type { Product } from "@/lib/types";
 
 interface ProductCardProps {
   product: Product;

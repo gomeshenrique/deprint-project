@@ -2,7 +2,10 @@ import { BannerCarouselContent } from "@/components/banner-carousel-content";
 import type { Banner, StrapiResponse } from "@/lib/types";
 
 async function fetchBanners(): Promise<StrapiResponse<Banner> | null> {
-  const baseUrl = process.env.STRAPI_BASE_URL || "";
+  const baseUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+      : process.env.STRAPI_BASE_URL;
   const apiKey = process.env.STRAPI_KEY || "";
 
   if (!baseUrl || !apiKey) {

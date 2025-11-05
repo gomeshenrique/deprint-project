@@ -51,13 +51,15 @@ export interface Banner {
 }
 
 export interface Product {
-  createdAt: string;
-  description: string;
-  documentId: string;
   id: number;
-  order: number;
-  publishedAt: string;
+  documentId: string;
   title: string;
+  description: string;
+  images: Image[];
+  order: number;
+  hasPromo: boolean;
+  createdAt: string;
+  publishedAt: string;
   updatedAt: string;
 }
 
@@ -71,6 +73,11 @@ export interface StrapiResponse<T> {
       total: number;
     };
   };
+}
+
+export interface StrapiSingleResponse<T> {
+  data: T;
+  meta: {};
 }
 
 // Hook Types
