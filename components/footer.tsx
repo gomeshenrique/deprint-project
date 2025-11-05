@@ -33,7 +33,6 @@ export function Footer() {
                 alt="deprint logo"
                 width={100}
                 height={32}
-                className="h-8 w-auto"
               />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

@@ -34,7 +34,6 @@ export function Navigation() {
                 alt="deprint logo"
                 width={120}
                 height={40}
-                className="h-8 lg:h-10 w-auto"
                 priority
               />
             </Link>

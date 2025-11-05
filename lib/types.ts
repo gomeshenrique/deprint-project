@@ -1,5 +1,5 @@
 // Banner Types
-export interface BannerImage {
+export interface Image {
   id: number;
   documentId: string;
   name: string;
@@ -46,12 +46,25 @@ export interface Banner {
   id: number;
   documentId: string;
   order: number;
-  image_desk: BannerImage;
-  image_mobile: BannerImage | null;
+  image_desk: Image;
+  image_mobile: Image | null;
 }
 
-export interface BannersResponse {
-  data: Banner[];
+export interface Product {
+  id: number;
+  documentId: string;
+  title: string;
+  description: string;
+  images: Image[];
+  order: number;
+  hasPromo: boolean;
+  createdAt: string;
+  publishedAt: string;
+  updatedAt: string;
+}
+
+export interface StrapiResponse<T> {
+  data: T[];
   meta: {
     pagination: {
       page: number;
@@ -62,18 +75,9 @@ export interface BannersResponse {
   };
 }
 
-// Component Props Types
-export interface BannerCarouselContentProps {
-  banners: Banner[];
-}
-
-export interface SwiperCarouselProps {
-  children: React.ReactNode;
-  autoplayDelay?: number;
-  autoplayPauseOnMouseEnter?: boolean;
-  effect?: "fade" | "slide" | "cube" | "coverflow" | "flip";
-  loop?: boolean;
-  className?: string;
+export interface StrapiSingleResponse<T> {
+  data: T;
+  meta: {};
 }
 
 // Hook Types

@@ -1,24 +1,39 @@
 import { ProductCard } from "@/components/product-card";
+import { Product, StrapiResponse } from "@/lib/types";
 
-async function getProdutcs(): Promise<any[]> {
-  let responseJson;
+async function getProdutcs(): Promise<StrapiResponse<Product> | null> {
+  const baseUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+      : process.env.STRAPI_BASE_URL;
+  const apiKey = process.env.STRAPI_KEY || "";
+
+  if (!baseUrl || !apiKey) {
+    console.warn("Strapi URL or API Key not configured");
+    return null;
+  }
 
   try {
     const response = await fetch(
-      `${process.env.STRAPI_BASE_URL}/api/products`,
+      `${baseUrl}/api/products?fields[0]=title&fields[1]=description&fields[2]=order&fields[3]=hasPromo&populate=[images][fields][0]=name&populate[images][fields][1]=url&populate[images][fields][2]=width&populate[images][fields][3]=height&populate[images][fields][4]=alternativeText&sort[0]=hasPromo:desc&sort[1]=order`,
       {
         headers: {
-          Authorization: `bearer ${process.env.STRAPI_KEY}`,
+          Authorization: `bearer ${apiKey}`,
         },
       }
     );
 
-    responseJson = await response.json();
+    if (!response.ok) {
+      throw new Error(`Failed to fetch banners: ${response.statusText}`);
+    }
+
+    const data: StrapiResponse<Product> = await response.json();
+
+    return data;
   } catch (error) {
     console.error(`Erro ao carregar lista de produtos: ${error}`);
+    return null;
   }
-
-  return responseJson.data;
 }
 
 export default async function Produts() {
@@ -52,9 +67,9 @@ export default async function Produts() {
         </div>
 
         {/* Products Grid */}
-        {products.length ? (
+        {products?.data.length ? (
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-            {products.map((product, index) => (
+            {products.data.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
