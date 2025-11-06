@@ -20,6 +20,9 @@ async function getProdutcs(): Promise<StrapiResponse<Product> | null> {
         headers: {
           Authorization: `bearer ${apiKey}`,
         },
+        next: {
+          revalidate: 300, // 5 min
+        },
       }
     );
 
@@ -40,7 +43,7 @@ export default async function Produts() {
   const products = await getProdutcs();
 
   return (
-    <main className="min-h-screen pt-24 lg:pt-32 pb-16">
+    <main className="min-h-screen pt-24 lg:pt-32 pb-16 relative overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />

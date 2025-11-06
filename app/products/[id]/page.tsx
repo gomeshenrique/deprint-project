@@ -30,6 +30,9 @@ async function getProduct(
         headers: {
           Authorization: `bearer ${apiKey}`,
         },
+        next: {
+          revalidate: 3600, // 1 hour
+        },
       }
     );
 
