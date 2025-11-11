@@ -230,11 +230,13 @@ html {
 
 .swiper-button-prev,
 .swiper-button-next {
+  width: 25px !important;
+  height: 25px !important;
   top: auto !important;
   bottom: 0 !important;
   z-index: 12 !important;
 }
 
 .swiper-pagination {
-  bottom: 10px !important;
+  bottom: 2px !important;
 }
