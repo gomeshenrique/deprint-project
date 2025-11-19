@@ -198,7 +198,7 @@ export default async function Product({
                   <div className="mt-auto pt-6 border-t border-border">
                     <div className="flex flex-col justify-center sm:flex-row gap-4">
                       <Link
-                        href="https://wa.me/5521972944994?text=Ol%C3%A1%2C%20estou%20interessado%20neste%20produto%20da%20deprint%20Gr%C3%A1fica%20R%C3%A1pida."
+                        href={`https://wa.me/5521972944994?text=Ol%C3%A1%2C%20estou%20interessado%20no%20${product.data.title}%20da%20deprint%20Gr%C3%A1fica%20R%C3%A1pida.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-6 py-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#25D366]/25 font-medium"

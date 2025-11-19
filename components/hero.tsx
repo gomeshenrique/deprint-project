@@ -12,7 +12,7 @@ export function Hero() {
   });
 
   return (
-    <section className="min-h-screen">
+    <section>
       <div className="relative flex items-center justify-center">
         {/* Background gradient effects */}
         <div className="absolute inset-0">
@@ -35,7 +35,6 @@ export function Hero() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-[1.1]">
               Impressão de{" "}
               <span
-                ref={qualidadeRef}
                 className="relative bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent px-0.5"
                 style={{
                   backgroundSize: "100% 100%",
@@ -44,6 +43,7 @@ export function Hero() {
               >
                 qualidade
                 <span
+                  ref={qualidadeRef}
                   className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#00B3ED] via-[#E53D95] to-[#FFF234] transition-all duration-500 ease-out rounded-full shadow-lg shadow-primary/50 blur-[0.5px]"
                   style={{
                     width: `${progress * 100}%`,
@@ -73,7 +73,6 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* <MessageCircle className="w-5 h-5 mr-2" /> */}
                   <Image
                     src="/whatsapp.svg"
                     alt="WhatsApp"
